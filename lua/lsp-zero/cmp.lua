@@ -89,6 +89,10 @@ function M.apply(cmp_opts, user_config)
     config.preselect = opts.preselect
   end
 
+  if type(opts.performance) == 'table' then
+    config.performance = s.merge(config.performance or {}, opts.performance)
+  end
+
   setup_complete = true
 
   cmp.setup(config)
